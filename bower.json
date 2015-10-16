@@ -1,0 +1,22 @@
+{
+  "name": "thurs",
+  "version": "0.0.0",
+  "homepage": "https://github.com/mellenklein/homework_week2_thurs",
+  "authors": [
+    "Mary Ellen Klein <maryellenklein@gmail.com>"
+  ],
+  "description": "Sk8 Homework",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "neat": "~1.7.2"
+  }
+}
