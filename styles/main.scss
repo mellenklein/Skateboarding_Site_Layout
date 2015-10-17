@@ -1,23 +1,37 @@
 // @import '../bower_components/normalize.css/normalize';
 @import '../bower_components/bourbon/app/assets/stylesheets/bourbon';
+$visual-grid: true;
 @import '../bower_components/neat/app/assets/stylesheets/neat';
-
 @import "_variables.scss";
 // @import "_fonts.scss";
 
 * {
   box-sizing: border-box;
+  // font-size: 10px;
+}
+
+.clearfix {
+  content: '';
+  display: block;
+  clear: both;
 }
 
 div.wrapper {
-  @include outer-container(100%);
-  margin: 0 10%;
+  @include outer-container;
+  position: relative;
+  // margin: 0 10%;
 }
 
 body {
-  font-size: 10px; /*do not change*/
+  // font-size: 10px; /*do not change*/
   font-family: 'Helvetica';
   background: url('../images/bg.jpg');
+  background-repeat: no-repeat;
+  background-position: cover;
+  // max-width: 100%;
+  &::before {
+    // max-width: 1030px;
+  }
   a {
     text-decoration: none;
   }
@@ -33,11 +47,11 @@ header {
     float: right;
     padding: 10px 0;
     a {
-      font-size: 5.5em;
+      font-size: 3.9em;
       padding: 2px;
       opacity: .9;
       &:hover {
-        font-size: 6em;
+        font-size: 4.2em;
       }
     }
     a:nth-child(1) {
@@ -61,7 +75,7 @@ header {
       background: $red;
       color: white;
       padding: 10px;
-      font-size: 1.5em;
+      font-size: 1em;
       margin-top: 10px;
     }
   }
@@ -110,21 +124,22 @@ main {
       @include span-columns(4 of 12);
       background: $grain;
       h2 {
-        font-size: 2em;
+        font-size: 1.4em;
         font-weight: 400;
       }
       p.date {
         color: gray;
+        font-size: .86em;
       }
       p.story {
-        font-size: 1.2em;
+        font-size: .86em;
         line-height: 1.8em;
       }
       button {
         color: $red;
         border: none;
         background: none;
-        font-size: 1.3em;
+        font-size: 0.93em;
         font-weight: 800;
         text-align: center;
         padding-left: 70px;
@@ -134,9 +149,10 @@ main {
   section.skaters {
     @include span-columns(12);
     margin-bottom: 50px;
+    overflow: auto;
     p {
       color: white;
-      font-size: 4.5em;
+      font-size: 3em;
       font-weight: 900;
       text-transform: uppercase;
       text-align: center;
@@ -144,18 +160,19 @@ main {
     }
     figure.skaters-left {
       @include span-columns(8 of 12);
-      @include omega();
+      // @include omega();
       margin: 0 auto;
       div.skaters-top {
         @include span-columns(8 of 12);
         width: 100%;
-        margin: 0 auto 10px;
+        margin-bottom: 10px;
+        // margin: 0 auto 10px;
         text-align: center;
         figure.skater1 {
           float: left;
           @include span-columns(4 of 8);
           background: url('../images/sk8er-4.png');
-          background-position: -130px;
+          background-position: -100px;
           background-repeat: no-repeat;
           display: inline-block;
           margin: 0 auto;
@@ -181,16 +198,17 @@ main {
         }
       }
       figure.skater3 {
+        @include omega();
         background: url('../images/sk8er-1.png');
-        background-position: 0px;
+        background-position: left;
         background-repeat: no-repeat;
         margin: 0;
         border: 5px solid white;
-        @include omega();
+
         clear: both;
         p {
           // padding: 90px 0;
-          margin: 75px auto;
+          margin: 80px auto;
         }
       }
     }
@@ -204,7 +222,7 @@ main {
       background-position: -400px;
       border: 5px solid white;
       p {
-        margin: 160px 0;
+        margin: 170px 0;
       }
     }
   }
@@ -221,47 +239,53 @@ main {
 footer {
   @include span-columns(12);
   background: white;
-  margin: 30px auto;
+  margin: 30px auto 80px;
   section.contact {
     @include span-columns(6 of 12);
     padding: 30px;
+    margin-right: 0;
     h2 {
       margin-top: 0;
-      font-size: 2.4em;
+      font-size: 1.7em;
       font-weight: 400;
     }
     p {
       color: $dark-gray;
-      font-size: 1.3em;
-      line-height: 1.7em;
+      font-size: 0.93em;
+      line-height: 1.8em;
     }
     nav.footer {
+      padding-top: 20px;
       a {
-        font-size: 2.5em;
+        font-size: 2.1em;
       }
       a:nth-child(1) {
-        color: $facebook;
+        color: #494949;
+        opacity: .9;
+        &:hover {
+          color: $facebook;
+        }
       }
       a:nth-child(2) {
-        color: $rss;
+          color: #A1A1A1;
+          opacity: .9;
+        &:hover {
+          color: $rss;
+        }
       }
       a:nth-child(3) {
-        color: $twitter;
+          color: #737373;
+          opacity: .9;
+        &:hover {
+          color: $twitter;
+        }
       }
       a:nth-child(4) {
-        color: $red;
-      }
-      a:nth-child(1) {
-        color: $facebook;
-      }
-      a:nth-child(2) {
-        color: $rss;
-      }
-      a:nth-child(3) {
-        color: $twitter;
-      }
-      a:nth-child(4) {
-        color: $red;
+        color: #737373;
+        opacity: .9;
+        &:hover {
+          color: $red;
+        }
       }
     }
   }
@@ -269,5 +293,33 @@ footer {
     @include span-columns(6 of 12);
     padding: 30px;
     margin: 0 auto;
+    overflow: auto;
+    float: right;
+    form.subscribe {
+      @include omega();
+      textarea {
+        height: 100px;
+      }
+    }
+    input,
+    textarea {
+      @include span-columns(12);
+      padding: 8px;
+      margin: 10px;
+      &:focus {
+        // border-color: $dark-gray;
+        outline-color: $dark-gray;
+      }
+    }
+    input.submit {
+      @include span-columns(6 of 12);
+      // @include omega();
+      float: right;
+      background: $red;
+      border: none;
+      color: #fff;
+      font-size: 1em;
+      font-weight: 300;
+    }
   }
 }
