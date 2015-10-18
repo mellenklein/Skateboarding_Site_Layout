@@ -1,8 +1,13 @@
 // @import '../bower_components/normalize.css/normalize';
 @import '../bower_components/bourbon/app/assets/stylesheets/bourbon';
-$visual-grid: true;
+// $visual-grid: true;
 @import '../bower_components/neat/app/assets/stylesheets/neat';
 @import "_variables.scss";
+@import "_responsive.scss";
+// @font-face {
+//   font-family: 'Myriad';
+//   src: url('../fonts/myriad.otf');
+// }
 // @import "_fonts.scss";
 
 * {
@@ -23,35 +28,74 @@ div.wrapper {
 }
 
 body {
-  // font-size: 10px; /*do not change*/
   font-family: 'Helvetica';
-  background: url('../images/bg.jpg');
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),      url('../images/bg.jpg');
   background-repeat: no-repeat;
   background-position: cover;
-  // max-width: 100%;
-  &::before {
-    // max-width: 1030px;
-  }
+  font-family: 'FontAwesome';
   a {
     text-decoration: none;
+  }
+}
+  div.skateboarders {
+    float: left;
+    p {
+      color: white;
+      background: $red;
+      float: left;
+      font-size: 1.5em;
+      padding: 25px 5px;
+      margin-top: 30px;
+    }
+    p.fa {
+      color: $red;
+      background: none;
+      font-size: 8em;
+      margin-top: 5px;
+      padding-left: 0;
+      padding-top: 0;
+      position: absolute;
+      // float:left;
+    }
   }
 header {
   @include span-columns(12);
   a.subscribe {
+    @include span-columns(8);
     color: white;
-    padding-left: 500px;
-    padding-top: 50px;
     line-height: 80px;
+    text-align: right;
+    transition: color 0.5s ease;
+    &:hover {
+      color: $red;
+      transition: color 0.5s ease;
+    }
+  }
+  a.ellipsis {
+    @include span-columns(.7);
+    color: white;
+    font-size: 1.5em;
+    line-height: 80px;
+    text-align: right;
   }
   nav.social {
+    @include span-columns(3.3);
     float: right;
     padding: 10px 0;
+    margin-right: 0;
+    text-align: right;
     a {
       font-size: 3.9em;
-      padding: 2px;
+      padding: 2px 5px;
       opacity: .9;
+      text-shadow: 1px 2px rgba(250,250,250,.4);
+      transition: $social-transition;
       &:hover {
-        font-size: 4.2em;
+        background-color: (rgba(250,250,250,0.7));
+        padding: 0;
+        border-radius: 5px;
+        text-shadow: none;
+        transition: $social-transition;
       }
     }
     a:nth-child(1) {
@@ -77,16 +121,26 @@ header {
       padding: 10px;
       font-size: 1em;
       margin-top: 10px;
+      box-shadow: $box-shadow;
+      transition: $nav-transition;
+      &:hover {
+        background-color: (rgba(250,250,250,0.8));
+        box-sizing: border-box;
+        padding: 5px;
+        color: $red;
+        border: 3px solid $red;
+        transition: $nav-transition;
+      }
     }
   }
  }
-}
 
 main {
   section.hero {
     @include span-columns(12);
     border: 10px solid $white;
     margin-top: 20px;
+    box-shadow: $box-shadow;
     div.guy {
       @include span-columns(12);
       @include omega();
@@ -115,14 +169,30 @@ main {
       position: relative;
       }
   }
+  div.dots {
+    @include span-columns(12);
+    text-align: center;
+    padding: 30px 0;
+    div.fa-dot-circle-o {
+      color: white;
+      text-shadow: 0px 3px rgba(250,250,250,.3);
+    }
+    div.fa-circle {
+      color: white;
+      size: 1.5em;
+      text-shadow: 0px 3px rgba(250,250,250,.3);
+    }
+  }
 
   section.articles {
-    margin: 50px 0;
+    margin: 0;
     @include span-columns(12);
     article {
       padding: 10px 30px;
       @include span-columns(4 of 12);
       background: $grain;
+      box-shadow: $box-shadow;
+
       h2 {
         font-size: 1.4em;
         font-weight: 400;
@@ -143,12 +213,17 @@ main {
         font-weight: 800;
         text-align: center;
         padding-left: 70px;
+        transition: font-size 0.5s ease;
+        &:hover {
+          font-size: 1em;
+          transition: font-size 0.5s ease;
+        }
       }
     }
   }
   section.skaters {
     @include span-columns(12);
-    margin-bottom: 50px;
+    margin: 50px 0;
     overflow: auto;
     p {
       color: white;
@@ -166,18 +241,26 @@ main {
         @include span-columns(8 of 12);
         width: 100%;
         margin-bottom: 10px;
-        // margin: 0 auto 10px;
         text-align: center;
         figure.skater1 {
           float: left;
           @include span-columns(4 of 8);
-          background: url('../images/sk8er-4.png');
-          background-position: -100px;
-          background-repeat: no-repeat;
+          background: url('../images/sk8er-4.png') no-repeat -100px;
           display: inline-block;
           margin: 0 auto;
           border: 5px solid white;
           margin-right: 23px;
+          box-shadow: $box-shadow;
+          transition: background-image 1s ease, border-color 0.5s ease;
+          &:hover {
+            background: linear-gradient(rgba(250,250,250,0.6), rgba(0, 0, 0, 0.8)), url('../images/sk8er-4.png') no-repeat -100px;
+            border-color: $red;
+            transition: background 1s ease, border-color 0.5s ease, text-shadow 0.5s ease;
+            p {
+              text-shadow: 1px 3px rgba(180,41,46,0.8);
+              transition: text-shadow 0.5s ease;
+            }
+          }
           p {
             margin: 50px auto;
           }
@@ -186,12 +269,21 @@ main {
           float:left;
           @include span-columns(4 of 8);
           @include omega();
-          background: url('../images/sk8er-3.png');
-          background-repeat: no-repeat;
-          background-position: 0px;
+          background: url('../images/sk8er-3.png') no-repeat 0px;
           display: inline-block;
           margin: 0;
+          box-shadow: $box-shadow;
           border: 5px solid white;
+          transition: background-image 1s ease, border-color 0.5s ease;
+          &:hover {
+            background: linear-gradient(rgba(250,250,250,0.6), rgba(0, 0, 0, 0.8)), url('../images/sk8er-3.png') no-repeat 0px;
+            border-color: $red;
+            transition: background-image 1s ease, border-color 0.5s ease, text-shadow 0.5s ease;
+            p {
+              text-shadow: 1px 3px rgba(180,41,46,0.8);
+              transition: text-shadow 0.5s ease;
+            }
+          }
           p {
             margin: 50px auto;
           }
@@ -199,15 +291,24 @@ main {
       }
       figure.skater3 {
         @include omega();
-        background: url('../images/sk8er-1.png');
-        background-position: left;
-        background-repeat: no-repeat;
+        background: url('../images/sk8er-1.png') no-repeat 0px;
+        background-size: 50em 25em;
         margin: 0;
         border: 5px solid white;
-
+        box-shadow: $box-shadow;
         clear: both;
+        transition: background-image 1s ease, border-color 0.5s ease;
+        &:hover {
+          background: linear-gradient(rgba(250,250,250,0.6), rgba(0, 0, 0, 0.8)), url('../images/sk8er-1.png') no-repeat 0px;
+          border-color: $red;
+          background-size: 50em 25em;
+          transition: background-image 1s ease, border-color 0.5s ease, text-shadow 0.5s ease;
+          p {
+            text-shadow: 1px 3px rgba(180,41,46,0.8);
+            transition: text-shadow 0.5s ease;
+          }
+        }
         p {
-          // padding: 90px 0;
           margin: 80px auto;
         }
       }
@@ -217,10 +318,19 @@ main {
       @include omega();
       float: right;
       margin: 0;
-      background: url('../images/sk8er-2.png');
-      background-repeat: no-repeat;
-      background-position: -400px;
+      background: url('../images/sk8er-2.png') no-repeat -400px;
       border: 5px solid white;
+      box-shadow: $box-shadow;
+      transition: background-image 1s ease, border-color 0.5s ease;
+      &:hover {
+        background: linear-gradient(rgba(250,250,250,0.6), rgba(0, 0, 0, 0.8)), url('../images/sk8er-2.png') no-repeat -400px;
+        border-color: $red;
+        transition: background 1s ease, border-color 0.5s ease, text-shadow 0.5s ease;
+        p {
+          text-shadow: 1px 3px rgba(180,41,46,0.8);
+          transition: text-shadow 0.5s ease;
+        }
+      }
       p {
         margin: 170px 0;
       }
@@ -230,8 +340,25 @@ main {
     @include span-columns(12);
     background: white;
     padding: 10px 30px 20px;
+    box-shadow: $box-shadow;
+    p {
+      color: $red;
+      // display: inline;
+      text-align: left;
+      position: absolute;
+      margin-left: -15px;
+      margin-top: 40px;
+      display: none;
+    }
     img {
       @include span-columns(1 of 10);
+      border-radius: 90px;
+      transition: transform .2s ease, border .5s ease;
+      &:hover {
+        transform: rotate(-90deg); transform-origin: center;
+        border: 2px inset $red;
+        transition: transform 1s ease, border 1s ease;
+      }
     }
   }
 }
@@ -240,6 +367,7 @@ footer {
   @include span-columns(12);
   background: white;
   margin: 30px auto 80px;
+  box-shadow: $box-shadow;
   section.contact {
     @include span-columns(6 of 12);
     padding: 30px;
@@ -258,31 +386,32 @@ footer {
       padding-top: 20px;
       a {
         font-size: 2.1em;
+        transition: color 0.5s ease;
+        opacity: .9;
+        &:hover {
+          transition: color 0.5s ease;
+        }
       }
       a:nth-child(1) {
-        color: #494949;
-        opacity: .9;
+        color: $slate;
         &:hover {
           color: $facebook;
         }
       }
       a:nth-child(2) {
-          color: #A1A1A1;
-          opacity: .9;
+          color: $light-gray;
         &:hover {
           color: $rss;
         }
       }
       a:nth-child(3) {
-          color: #737373;
-          opacity: .9;
+          color: $med-gray;
         &:hover {
           color: $twitter;
         }
       }
       a:nth-child(4) {
-        color: #737373;
-        opacity: .9;
+        color: $med-gray;
         &:hover {
           color: $red;
         }
@@ -299,6 +428,9 @@ footer {
       @include omega();
       textarea {
         height: 100px;
+        border-color: $light-gray;
+        border-top: 2px inset;
+        border-left: 2px inset;
       }
     }
     input,
@@ -306,8 +438,8 @@ footer {
       @include span-columns(12);
       padding: 8px;
       margin: 10px;
+
       &:focus {
-        // border-color: $dark-gray;
         outline-color: $dark-gray;
       }
     }
@@ -320,6 +452,19 @@ footer {
       color: #fff;
       font-size: 1em;
       font-weight: 300;
+      transition: background 0.5s ease;
+      &:hover {
+        background: rgba(250,0,0,.4);
+        transition: background 0.5s ease;
+      }
+    }
+  }
+}
+
+@media (max-width: 1032px) {
+  header {
+    nav.social a {
+    font-size: 3em;
     }
   }
 }
