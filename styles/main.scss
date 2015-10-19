@@ -361,6 +361,9 @@ main {
       }
     }
   }
+  section.skaters-m {
+    display: none;
+  }
 }
 
 footer {
@@ -465,6 +468,159 @@ footer {
   header {
     nav.social a {
     font-size: 3em;
+    }
+  }
+}
+
+@media (max-width: 975px) {
+  main {
+    section.skaters {
+      figure.skaters-left {
+        @include span-columns(12);
+        div.skaters-top {
+          @include span-columns(6 of 12);
+          width: 100%;
+          figure.skater1 {
+            @include span-columns(3 of 6);
+          }
+          figure.skater2 {
+            @include span-columns(3 of 6);
+            // @include omega();
+            p {
+              margin: 80px auto;
+            }
+          }
+        }
+        figure.skater3 {
+          @include span-columns(3 of 6);
+        }
+    }
+    figure.skater4 {
+      position: absolute;
+      margin-left: 52.5%;
+      margin-top: 236px;
+      float: right;
+      clear:both;
+      @include span-columns(3 of 6);
+      p {
+        margin: 80px auto;
+      }
+    }
+   }
+  }
+}
+
+@media (max-width: 907px) {
+  div.wrapper {
+    margin: 0 10%;
+  }
+  header {
+    a.subscribe,
+    a.ellipsis {
+      font-size: .8em;
+    }
+    nav.social a {
+    font-size: 2em;
+    padding-top: 10px;
+    padding-right: 0;
+    }
+    nav.main {
+      font-size: .8em;
+      a {
+        padding: 10px 0;
+      }
+    }
+  }
+  main section.skaters {
+    p {
+      font-size: 2em;
+    }
+    figure.skaters-left div.skaters-top {
+    figure.skater1 {
+      @include span-columns(3 of 6);
+      p {
+        margin: 80px auto;
+      }
+    }
+  }
+    figure.skater4 {
+      margin-top: 220px;
+    }
+  }
+}
+
+@media (max-width: 818px) {
+  main {
+  section.articles {
+    @include span-columns(12);
+    article {
+      padding: 10px 30px;
+      margin: 10px 0;
+      @include span-columns(12 of 12);
+      button {
+        display: block;
+        margin: 0 auto;
+        padding: 0 0 10px 0;
+      }
+    }
+  }
+
+  section.skaters-m {
+    @include span-columns(12);
+    display: block;
+    figure {
+      @include span-columns(6 of 12);
+      margin: 0 auto;
+      text-align: center;
+      float: left;
+      width: 50%;
+      margin: 10px 0;
+      border: 5px solid white;
+      p {
+        color: white;
+        font-size: 1.8em;
+        text-transform: uppercase;
+        margin: 80px auto;
+      }
+    }
+      figure.skater-1 {
+        // @include span-columns(6 of 12);
+        background: url('../images/sk8er-4.png') no-repeat;
+      }
+      figure.skater-2 {
+        // @include span-columns(6 of 12);
+        background: url('../images/sk8er-3.png') no-repeat;
+      }
+      figure.skater-3 {
+        // @include span-columns(6 of 12);
+        background: url('../images/sk8er-1.png') no-repeat;
+      }
+      figure.skater-4 {
+        // @include span-columns(6 of 12);
+        background: url('../images/sk8er-2.png') no-repeat;
+      }
+    }
+  }
+
+  footer {
+    @include span-columns(12);
+    section.contact {
+      @include span-columns(12 of 12);
+      width: 100%;
+      text-align: center;
+      nav.footer {
+        text-align: center;
+      }
+    }
+    section.form {
+      @include span-columns(12 of 12);
+      width: 100%;
+      form.subscribe {
+      input.submit {
+        float: none;
+        margin: 0 auto;
+      }
+    }
     }
   }
 }
