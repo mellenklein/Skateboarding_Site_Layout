@@ -652,6 +652,8 @@ footer {
       background: url("../images/sk8er-1.png") no-repeat; }
     main section.skaters-m figure.skater-4 {
       background: url("../images/sk8er-2.png") no-repeat; }
+  main section.skaters {
+    display: none; }
   footer {
     float: left;
     display: block;
