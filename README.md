@@ -3,7 +3,7 @@ Without fail, a front-end developer will need to convert a wireframe into a full
 
 For this assignment, you'll be creating this below wireframe and turning into a site that not only renders well from a normal desktop size, but also transitions and is very usable on smaller viewports.
 
-![Powell Peralta](assets/powell_peralta.jpg)
+![Powell Peralta](https://raw.githubusercontent.com/theironyard-frontend-nashville/assignments/cohort2/week02/thur/assets/powell_peralta.jpg)
 
 ## Objectives
 
